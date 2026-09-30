@@ -4,9 +4,9 @@
  const guide=document.querySelector('.style-guide');
  if(guide){
   const options={
-   bespoke:{tag:'01 / PERSONAL',title:'屬於你自己的俐落。',text:'從正式會面到重要時刻，先找到適合身形與場合的剪裁，再討論面料與細節。',image:'original-03.webp',label:'探索個人量身訂製',path:'bespoke'},
-   corporate:{tag:'02 / CORPORATE',title:'讓團隊，說同一種語言。',text:'從穿著人數、工作情境與品牌色系開始，讓每一位夥伴都有合適的制服。',image:'hero.webp',label:'探索企業團體制服',path:'corporate-uniforms'},
-   outerwear:{tag:'03 / OUTERWEAR',title:'把專業，帶到戶外。',text:'依通勤、外勤與季節需求，討論外層防護、保暖配置及團體穿著方式。',image:'fabric.webp',label:'探索機能外套',path:'functional-outerwear'}
+   bespoke:{tag:'01 / PERSONAL',title:'屬於你自己的俐落',text:'從正式會面到重要時刻，先找到適合身形與場合的剪裁，再討論面料與細節。',image:'original-03.webp',label:'探索個人量身訂製',path:'bespoke'},
+   corporate:{tag:'02 / CORPORATE',title:'讓團隊說同一種語言',text:'從穿著人數、工作情境與品牌色系開始，讓每一位夥伴都有合適的制服。',image:'hero.webp',label:'探索企業團體制服',path:'corporate-uniforms'},
+   outerwear:{tag:'03 / OUTERWEAR',title:'把專業帶到戶外',text:'依通勤、外勤與季節需求，討論外層防護、保暖配置及團體穿著方式。',image:'fabric.webp',label:'探索機能外套',path:'functional-outerwear'}
   };
   guide.querySelectorAll('[data-service]').forEach(button=>button.addEventListener('click',()=>{
    const data=options[button.dataset.service];
