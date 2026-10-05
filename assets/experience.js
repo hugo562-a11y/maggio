@@ -45,3 +45,17 @@
  });
 })();
 
+
+(() => {
+ const section=document.querySelector('.client-section');if(!section)return;
+ const track=section.querySelector('.client-track'),pause=section.querySelector('[data-client-pause]');
+ let paused=matchMedia('(prefers-reduced-motion: reduce)').matches,hover=false,focus=false;
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ function label(){pause.textContent=paused?'播放輪播':'暫停輪播';pause.setAttribute('aria-pressed',String(paused));}label();
+ function move(direction){const max=track.scrollWidth-track.clientWidth;let left=track.scrollLeft+direction*(track.firstElementChild.getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap));if(left>max+2)left=0;if(left<0)left=max;track.scrollTo({left,behavior:motion.matches?'auto':'smooth'});}
+ section.querySelector('[data-client-prev]').addEventListener('click',()=>move(-1));section.querySelector('[data-client-next]').addEventListener('click',()=>move(1));pause.addEventListener('click',()=>{paused=!paused;label();});
+ section.addEventListener('mouseenter',()=>hover=true);section.addEventListener('mouseleave',()=>hover=false);section.addEventListener('focusin',()=>focus=true);section.addEventListener('focusout',e=>{focus=section.contains(e.relatedTarget);});
+ track.addEventListener('touchstart',()=>{paused=true;label();},{passive:true});
+ motion.addEventListener('change',e=>{if(e.matches){paused=true;label();}});
+ setInterval(()=>{const r=section.getBoundingClientRect();if(!paused&&!hover&&!focus&&!document.hidden&&r.bottom>0&&r.top<innerHeight)move(1);},3000);
+})();
