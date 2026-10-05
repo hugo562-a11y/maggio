@@ -59,3 +59,12 @@
  motion.addEventListener('change',e=>{if(e.matches){paused=true;label();}});
  setInterval(()=>{const r=section.getBoundingClientRect();if(!paused&&!hover&&!focus&&!document.hidden&&r.bottom>0&&r.top<innerHeight)move(1);},3000);
 })();
+
+(() => {
+ const video=document.querySelector('#office-video'),button=document.querySelector('.office-sound');if(!video||!button)return;
+ video.defaultMuted=true;video.muted=true;button.hidden=false;
+ function sync(){const audible=!video.muted&&video.volume>0;button.textContent=audible?'關閉聲音':'開啟聲音';button.setAttribute('aria-pressed',String(audible));}
+ button.addEventListener('click',()=>{if(video.muted||video.volume===0){video.muted=false;if(video.volume===0)video.volume=.6;}else video.muted=true;sync();});
+ video.addEventListener('volumechange',sync);sync();
+ video.play().catch(()=>{/* Native play control remains available when autoplay is restricted. */});
+})();
