@@ -12,7 +12,9 @@ body{background:#f8f9fb}main{overflow:clip}.container{position:relative}.site-he
 
 /* Transparent brand artwork and accessible hover treatment. */
 .brand .brand-logo{mix-blend-mode:normal;transition:transform .28s ease,filter .28s ease;transform-origin:center}
-.site-footer .brand{background:#edf2f7;padding:14px 18px;border-radius:3px}
+.site-footer .brand{background:transparent;padding:0;border-radius:0}
+.site-footer .brand .brand-logo{filter:brightness(0) invert(1)}
+.site-footer .brand:hover .brand-logo,.site-footer .brand:focus-visible .brand-logo{filter:brightness(0) invert(1) drop-shadow(0 4px 7px #ffffff30)}
 .brand:focus-visible{outline:2px solid #b4453b;outline-offset:6px}
 @media(hover:hover){.brand:hover .brand-logo{transform:translateY(-3px) scale(1.025);filter:drop-shadow(0 5px 5px #10213a30)}}
 .brand:focus-visible .brand-logo{filter:drop-shadow(0 5px 5px #10213a30)}
