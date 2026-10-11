@@ -30,3 +30,6 @@ body{background:#f8f9fb}main{overflow:clip}.container{position:relative}.site-he
 
 /* Keep the two portrait uniforms at the same scale without cropping. */
 .page-home .project-card:nth-child(-n+2) .project-photo img{object-fit:contain;padding:0;object-position:center}
+
+/* Show the full light-gray suit on the projects page. */
+.page-projects .project-photo img[src*="light gray.webp"]{object-fit:contain;object-position:center;padding:0;transform:none}
