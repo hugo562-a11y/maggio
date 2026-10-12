@@ -1,3 +1,2 @@
-# Preview only. Update when launching the approved production site.
 User-agent: *
 Disallow: /

@@ -38,7 +38,7 @@
   const form = document.querySelector('#inquiry-form');
   if (!form) return;
   const kind = new URLSearchParams(location.search).get('service');
-  const kinds = {bespoke:'個人量身訂製',corporate:'企業團體制服',outerwear:'機能外套',other:'其他需求'};
+  const kinds = {corporate:'企業制服',outerwear:'GORE-TEX 與機能外套',casual:'品牌休閒',other:'整體服裝規劃'};
   if (Object.hasOwn(kinds, kind)) form.elements.service.value = kind;
   const status = document.querySelector('#form-status');
   const draft = document.querySelector('#email-draft');
